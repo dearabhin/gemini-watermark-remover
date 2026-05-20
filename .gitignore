@@ -1,8 +1,5 @@
 # Dependencies
 node_modules/
 
-# Generated CSS (built by Cloudflare Pages during deploy)
-css/output.css
-
 # blog/best-free-ai-image-tools-2026
 # blog/gemini-nano-banana-pro
