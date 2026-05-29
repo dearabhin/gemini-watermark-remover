@@ -1,11 +1,15 @@
-/js/*
-  Cache-Control: public, max-age=31536000, immutable
-
+# Fonts are content-stable (renamed if ever changed) → safe to cache forever.
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# These have STATIC filenames that change on every rebuild/edit.
+# They must NOT be "immutable" or the edge/browser will serve stale copies.
+# must-revalidate + ETag gives cheap 304s with zero stale-content risk.
 /css/output.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
+
+/js/*
+  Cache-Control: public, max-age=0, must-revalidate
 
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, must-revalidate
