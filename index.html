@@ -203,13 +203,13 @@
   </header>
 
   <!-- ════ NOTIFICATION BANNER ════ -->
-  <div id="notifBanner" class="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200 dark:border-amber-800" role="alert">
+  <div id="notifBanner" class="bg-emerald-50 dark:bg-emerald-900/20 border-b border-emerald-200 dark:border-emerald-800" role="alert">
     <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2 text-sm font-medium text-amber-800 dark:text-amber-300">
-        <iconify-icon icon="ph:megaphone-bold" width="18" class="flex-shrink-0" aria-hidden="true"></iconify-icon>
-        <p class="m-0"><strong>Heads up:</strong> Google recently changed the watermark position — newly generated images may not work correctly. A newer version with full support is coming soon!</p>
+      <div class="flex items-center gap-2 text-sm font-medium text-emerald-800 dark:text-emerald-300">
+        <iconify-icon icon="ph:check-circle-fill" width="18" class="flex-shrink-0" aria-hidden="true"></iconify-icon>
+        <p class="m-0"><strong>Updated!</strong> Now supports both old and new Gemini watermark positions (including the latest 192px offset). Auto-detection picks the correct one automatically.</p>
       </div>
-      <button onclick="document.getElementById('notifBanner').remove()" class="flex-shrink-0 p-1 rounded hover:bg-amber-200/50 dark:hover:bg-amber-800/30 text-amber-600 dark:text-amber-400 transition-colors" aria-label="Dismiss notification">
+      <button onclick="document.getElementById('notifBanner').remove()" class="flex-shrink-0 p-1 rounded hover:bg-emerald-200/50 dark:hover:bg-emerald-800/30 text-emerald-600 dark:text-emerald-400 transition-colors" aria-label="Dismiss notification">
         <iconify-icon icon="ph:x-bold" width="14"></iconify-icon>
       </button>
     </div>
@@ -619,6 +619,6 @@
   </script>
 
   <!-- JSZip is now dynamically imported in app.js only when needed -->
-  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/app.js" data-cfasync="false"></script>
 </body>
 </html>
