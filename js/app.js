@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const result = await engine.process(file);
-                const fileName = `clean_${file.name.replace(/\.[^/.]+$/, "")}.png`;
+                const fileName = `${file.name.replace(/\.[^/.]+$/, "")}-clean.png`;
                 const fileData = {
                     name: fileName,
                     blob: result.blob,
