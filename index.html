@@ -14,7 +14,7 @@
 <link rel="llms" type="text/plain" href="/llms.txt" />
 
 <!-- ── Theme color for mobile browsers ── -->
-<meta name="theme-color" content="#6366f1" />
+<meta name="theme-color" content="#0f6cbd" />
 
 <!-- ── Open Graph ── -->
 <meta property="og:type" content="website" />
@@ -131,6 +131,7 @@
   </script>
 
 <!-- All custom styles are now in css/input.css → css/output.css -->
+  <script src="/js/theme.js"></script>
 </head>
 
 <body
@@ -163,8 +164,8 @@
           class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
           aria-label="Toggle Dark Mode"
         >
-          <iconify-icon id="sunIcon"  icon="ph:sun-bold"  width="22" class="hidden dark:block"></iconify-icon>
-          <iconify-icon id="moonIcon" icon="ph:moon-bold" width="22" class="block dark:hidden"></iconify-icon>
+          <iconify-icon id="sunIcon"  icon="fluent:weather-sunny-24-filled"  width="22" class="hidden dark:block"></iconify-icon>
+          <iconify-icon id="moonIcon" icon="fluent:weather-moon-24-filled" width="22" class="block dark:hidden"></iconify-icon>
         </button>
 
         <!-- Nav links -->
@@ -539,29 +540,6 @@
        SCRIPTS
   ════════════════════════════════════════════ -->
   <script>
-    // ── Theme toggle ──────────────────────────────
-    const themeToggleBtn = document.getElementById("themeToggle");
-    const htmlElement    = document.documentElement;
-
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
-
-    themeToggleBtn.addEventListener("click", () => {
-      if (htmlElement.classList.contains("dark")) {
-        htmlElement.classList.remove("dark");
-        localStorage.theme = "light";
-      } else {
-        htmlElement.classList.add("dark");
-        localStorage.theme = "dark";
-      }
-    });
-
     // ── Floating support popup ────────────────────
     (function () {
       const popup      = document.getElementById("supportPopup");

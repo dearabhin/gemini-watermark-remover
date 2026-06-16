@@ -8,7 +8,7 @@
   <meta name="description" content="Contact Abhin Krishna, developer of RemoveWatermark.dev. Report a bug, ask a question, or just say hello." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://removewatermark.dev/contact.html" />
-  <meta name="theme-color" content="#6366f1" />
+  <meta name="theme-color" content="#0f6cbd" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://removewatermark.dev/contact.html" />
@@ -47,6 +47,7 @@
     gtag('config', 'G-211ECNBEDH');
   </script>
   <!-- Styles in css/output.css -->
+  <script src="/js/theme.js"></script>
 </head>
 
 <body class="bg-theme-light dark:bg-theme-dark text-slate-800 dark:text-slate-200 antialiased flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
@@ -63,8 +64,8 @@
 
       <div class="flex items-center gap-4">
         <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary/50" aria-label="Toggle Dark Mode">
-          <iconify-icon id="sunIcon" icon="ph:sun-bold" width="22" class="hidden dark:block"></iconify-icon>
-          <iconify-icon id="moonIcon" icon="ph:moon-bold" width="22" class="block dark:hidden"></iconify-icon>
+          <iconify-icon id="sunIcon" icon="fluent:weather-sunny-24-filled" width="22" class="hidden dark:block"></iconify-icon>
+          <iconify-icon id="moonIcon" icon="fluent:weather-moon-24-filled" width="22" class="block dark:hidden"></iconify-icon>
         </button>
         <nav aria-label="Site navigation" class="flex-shrink-0 border-l border-gray-200 dark:border-gray-700 pl-4 flex items-center gap-3">
           <a href="https://github.com/dearabhin/gemini-watermark-remover" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors flex items-center gap-1 font-semibold text-sm md:text-base" aria-label="View source on GitHub">
@@ -272,103 +273,6 @@
     </div>
   </footer>
 
-  <script>
-    // ── Theme toggle ──────────────────────────────
-    const themeToggleBtn = document.getElementById("themeToggle");
-    const htmlElement    = document.documentElement;
-
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
-
-    themeToggleBtn.addEventListener("click", () => {
-      if (htmlElement.classList.contains("dark")) {
-        htmlElement.classList.remove("dark");
-        localStorage.theme = "light";
-      } else {
-        htmlElement.classList.add("dark");
-        localStorage.theme = "dark";
-      }
-    });
-
-    // ── CONFIGURATION ──
-    // live deployed Cloudflare Worker URL
-    const WORKER_ENDPOINT = 'https://telegram-contact.dearabhin-7b5.workers.dev';
-
-    const form = document.getElementById('contact-form');
-    const successBox = document.getElementById('form-success');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnLabel = document.getElementById('btn-label');
-
-    function showError(id, show) {
-      document.getElementById(id).classList.toggle('hidden', !show);
-    }
-
-    function validateForm() {
-      let valid = true;
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      showError('name-error', !name);
-      showError('email-error', !emailRegex.test(email));
-      showError('subject-error', !subject);
-      showError('message-error', message.length < 20);
-
-      if (!name || !emailRegex.test(email) || !subject || message.length < 20) valid = false;
-      return valid;
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!validateForm()) return;
-
-      // Bot trap check
-      if (form._honeypot && form._honeypot.value) return;
-
-      submitBtn.disabled = true;
-      btnLabel.textContent = 'Sending…';
-
-      try {
-        const formData = new FormData(form);
-        const payload = Object.fromEntries(formData.entries());
-
-        const res = await fetch(WORKER_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          form.classList.add('hidden');
-          successBox.classList.remove('hidden');
-        } else {
-          throw new Error('Server response error');
-        }
-      } catch {
-        btnLabel.textContent = 'Failed – try again';
-        submitBtn.disabled = false;
-        setTimeout(() => {
-          btnLabel.textContent = 'Send Message';
-        }, 3000);
-      }
-    });
-
-    function resetForm() {
-      form.reset();
-      form.classList.remove('hidden');
-      successBox.classList.add('hidden');
-      submitBtn.disabled = false;
-      btnLabel.textContent = 'Send Message';
-    }
-  </script>
 
 </body>
 </html>
