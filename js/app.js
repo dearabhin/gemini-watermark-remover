@@ -22,12 +22,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadAllBtn = document.getElementById('downloadAllBtn');
     const resetBtn = document.getElementById('resetBtn');
     const formatSelect = document.getElementById('formatSelect');
+    const qualityControl = document.getElementById('qualityControl');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityValue = document.getElementById('qualityValue');
 
     let allProcessedFiles = [];
+    const DEFAULT_QUALITY = 90;
+
+    function updateQualityVisibility() {
+        if (formatSelect.value === 'webp') {
+            qualityControl.classList.remove('hidden');
+        } else {
+            qualityControl.classList.add('hidden');
+        }
+    }
+
+    function getQuality() {
+        return (qualitySlider ? parseInt(qualitySlider.value, 10) : DEFAULT_QUALITY) / 100;
+    }
+
+    if (qualitySlider && qualityValue) {
+        qualitySlider.addEventListener('input', () => {
+            qualityValue.textContent = qualitySlider.value + '%';
+        });
+    }
+
+    formatSelect.addEventListener('change', updateQualityVisibility);
+    updateQualityVisibility();
 
     // Convert a PNG blob to the requested download format.
     // Returns { blob, ext }. PNG is returned as-is; WebP is encoded lossy via canvas.
-    async function convertToFormat(blob, format) {
+    async function convertToFormat(blob, format, quality = 0.92) {
         if (format !== 'webp') return { blob, ext: 'png' };
 
         const bitmap = await createImageBitmap(blob);
@@ -40,9 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return new Promise((resolve, reject) => {
             canvas.toBlob((webpBlob) => {
-                if (webpBlob) resolve({ blob: webpBlob, ext: 'webp' });
-                else reject(new Error('Browser does not support WebP encoding.'));
-            }, 'image/webp', 0.92);
+                // Some browsers (e.g. Safari) silently fall back to PNG when WebP encoding is unsupported.
+                if (webpBlob && webpBlob.type === 'image/webp') {
+                    resolve({ blob: webpBlob, ext: 'webp' });
+                } else {
+                    reject(new Error('Browser does not support WebP encoding.'));
+                }
+            }, 'image/webp', quality);
         });
     } 
 
@@ -82,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (allProcessedFiles.length === 1) {
             const item = allProcessedFiles[0];
             try {
-                const { blob, ext } = await convertToFormat(item.blob, formatSelect.value);
+                const { blob, ext } = await convertToFormat(item.blob, formatSelect.value, getQuality());
                 const name = item.name.replace(/\.[^/.]+$/, '') + '.' + ext;
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
@@ -109,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const format = formatSelect.value;
         await Promise.all(allProcessedFiles.map(async (item) => {
             try {
-                const { blob, ext } = await convertToFormat(item.blob, format);
+                const { blob, ext } = await convertToFormat(item.blob, format, getQuality());
                 const name = item.name.replace(/\.[^/.]+$/, '') + '.' + ext;
                 zip.file(name, blob);
             } catch (err) {
@@ -176,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.querySelector('button[data-index]').addEventListener('click', async () => {
             try {
-                const { blob, ext } = await convertToFormat(fileData.blob, formatSelect.value);
+                const { blob, ext } = await convertToFormat(fileData.blob, formatSelect.value, getQuality());
                 const name = fileName.replace(/\.[^/.]+$/, '') + '.' + ext;
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
