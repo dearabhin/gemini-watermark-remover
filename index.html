@@ -106,7 +106,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 <!-- ── Self-hosted Fonts ── -->
-<link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- ── Built Tailwind CSS (purged, minified) ── -->
 <link rel="stylesheet" href="/css/output.css" />
@@ -143,7 +142,7 @@
        HEADER
   ════════════════════════════════════════════ -->
   <header
-    class="sticky top-0 z-50 bg-white/80 dark:bg-theme-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
+    class="sticky top-0 z-50 bg-white/80 dark:bg-theme-dark-translucent backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
   >
     <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
@@ -317,7 +316,7 @@
   ════════════════════════════════════════════ -->
   <div
     id="loadingOverlay"
-    class="fixed inset-0 bg-white/90 dark:bg-theme-dark/90 backdrop-blur-sm z-50 hidden items-center justify-center"
+    class="fixed inset-0 bg-white/90 dark:bg-theme-dark-translucent backdrop-blur-sm z-50 hidden items-center justify-center"
     role="status"
     aria-live="polite"
     aria-label="Processing your image"
@@ -408,7 +407,7 @@
         class="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-theme-cardDark rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
       >
         <!-- Header -->
-        <div class="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-theme-cardDark/95 backdrop-blur">
+        <div class="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-theme-card-dark-translucent backdrop-blur">
           <h2 class="text-lg font-bold text-slate-900 dark:text-white">About this tool</h2>
           <button
             type="button"

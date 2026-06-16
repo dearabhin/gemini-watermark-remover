@@ -2,33 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Self-hosted Montserrat (variable font, supports 400-800) ── */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url('/fonts/montserrat-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+/* ── Fluent 2 design tokens (alias layer) ── */
+:root {
+  --colorNeutralBackground1: #ffffff;
+  --colorNeutralBackground2: #fafafa;
+  --colorNeutralBackground3: #f5f5f5;
+  --colorNeutralForeground1: #242424;
+  --colorNeutralForeground2: #424242;
+  --colorNeutralForeground3: #616161;
+  --colorNeutralForeground4: #707070;
+  --colorNeutralForegroundDisabled: #bdbdbd;
+  --colorNeutralStroke1: #d1d1d1;
+  --colorNeutralStroke2: #e0e0e0;
+  --colorNeutralStroke3: #f0f0f0;
+
+  --colorBrandForeground1: #0f6cbd;
+  --colorBrandForeground2: #115ea3;
+  --colorBrandForegroundLink: #115ea3;
+  --colorBrandBackground: #0f6cbd;
+  --colorBrandBackgroundHover: #115ea3;
+  --colorBrandBackgroundPressed: #0c3b5e;
+  --colorBrandBackgroundSelected: #0f548c;
+  --colorCompoundBrandForeground1: #0f6cbd;
+  --colorCompoundBrandForeground1Hover: #115ea3;
+  --colorCompoundBrandForeground1Pressed: #0f548c;
+
+  --colorNeutralForegroundInverted: #ffffff;
+  --colorNeutralBackgroundInverted: #292929;
+
+  --theme-light: var(--colorNeutralBackground2);
+  --theme-dark: var(--colorNeutralBackground1);
+  --theme-dark-translucent: rgba(31, 31, 31, 0.9);
+  --theme-card-dark: var(--colorNeutralBackground3);
+  --theme-card-dark-translucent: rgba(20, 20, 20, 0.95);
+  --brand-primary: var(--colorBrandForeground1);
+  --brand-secondary: var(--colorBrandForeground2);
+  --brand-accent: var(--colorBrandForegroundLink);
 }
 
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url('/fonts/montserrat-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
-    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
-    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
-    U+A720-A7FF;
+.dark {
+  --colorNeutralBackground1: #292929;
+  --colorNeutralBackground2: #1f1f1f;
+  --colorNeutralBackground3: #141414;
+  --colorNeutralForeground1: #ffffff;
+  --colorNeutralForeground2: #d6d6d6;
+  --colorNeutralForeground3: #adadad;
+  --colorNeutralForeground4: #999999;
+  --colorNeutralForegroundDisabled: #5c5c5c;
+  --colorNeutralStroke1: #525252;
+  --colorNeutralStroke2: #3d3d3d;
+  --colorNeutralStroke3: #292929;
+
+  --colorBrandForeground1: #479ef5;
+  --colorBrandForeground2: #62abf5;
+  --colorBrandForegroundLink: #479ef5;
+  --colorBrandBackground: #115ea3;
+  --colorBrandBackgroundHover: #0f6cbd;
+  --colorBrandBackgroundPressed: #082338;
+  --colorBrandBackgroundSelected: #0a2e4a;
+  --colorCompoundBrandForeground1: #479ef5;
+  --colorCompoundBrandForeground1Hover: #62abf5;
+  --colorCompoundBrandForeground1Pressed: #2886de;
+
+  --colorNeutralForegroundInverted: #242424;
+  --colorNeutralBackgroundInverted: #ffffff;
+
+  --theme-light: var(--colorNeutralBackground1);
+  --theme-dark: var(--colorNeutralBackground2);
+  --theme-dark-translucent: rgba(31, 31, 31, 0.9);
+  --theme-card-dark: var(--colorNeutralBackground3);
+  --theme-card-dark-translucent: rgba(20, 20, 20, 0.95);
+  --brand-primary: var(--colorBrandForeground1);
+  --brand-secondary: var(--colorBrandForeground2);
+  --brand-accent: var(--colorBrandForegroundLink);
 }
 
 /* ── Base Styles ── */
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system,
+    BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
 }
 
 body,
@@ -47,7 +99,7 @@ footer {
 }
 
 .hover-patreon:hover {
-  color: #FF424D;
+  color: #ff424d;
   transition: color 0.3s;
 }
 
@@ -92,13 +144,15 @@ article strong {
 }
 
 /* ── Accessibility: Links should have underline indicator ── */
-footer nav[aria-label="Footer links"] a {
+footer nav[aria-label="Footer links"] a,
+nav[aria-label="Modal footer links"] a {
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s ease, color 0.3s ease;
 }
 
-footer nav[aria-label="Footer links"] a:hover {
+footer nav[aria-label="Footer links"] a:hover,
+nav[aria-label="Modal footer links"] a:hover {
   text-decoration-color: currentColor;
 }
