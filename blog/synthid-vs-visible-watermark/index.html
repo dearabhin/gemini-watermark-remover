@@ -102,7 +102,7 @@
       <div class="flex items-center gap-2 overflow-hidden hover:opacity-80 transition-opacity">
         <span class="text-3xl select-none" aria-hidden="true">✨</span>
         <a href="/" class="text-lg md:text-xl font-bold text-slate-900 dark:text-white whitespace-nowrap tracking-tight m-0">
-          AI Sparkle <span class="text-brand-primary">Remover</span>
+          Gemini Watermark <span class="text-brand-primary">Remover</span>
         </a>
       </div>
 
@@ -111,12 +111,7 @@
           <iconify-icon id="sunIcon" icon="fluent:weather-sunny-24-filled" width="22" class="hidden dark:block"></iconify-icon>
           <iconify-icon id="moonIcon" icon="fluent:weather-moon-24-filled" width="22" class="block dark:hidden"></iconify-icon>
         </button>
-        <nav aria-label="Site navigation" class="flex-shrink-0 border-l border-gray-200 dark:border-gray-700 pl-4 flex items-center gap-3">
-          <a href="https://github.com/dearabhin/gemini-watermark-remover" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors flex items-center gap-1 font-semibold text-sm md:text-base">
-            <iconify-icon icon="mdi:github" width="24"></iconify-icon>
-            <span class="hidden sm:inline">GitHub</span>
-          </a>
-        </nav>
+        
       </div>
     </div>
   </header>
@@ -158,14 +153,14 @@
       </div>
 
       <article class="text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-        <p>Hey everyone. If you have been following my recent projects, you probably know about the AI Sparkle Remover tool I built. It started as a fun, open source experiment to see if I could mathematically erase the visible Gemini watermark from AI generated images. To my surprise, it really caught on and reached over 16,500 users. But as I dove deeper into the forensics of AI images, especially testing weird and highly specific prompts like "nano banana ai images", I realized there is a massive difference between the visible sparkles we see on the surface and the invisible markers embedded deep within the file.</p>
+        <p>Hey everyone. If you have been following my recent projects, you probably know about the Gemini Watermark Remover tool I built. It started as a fun, open source experiment to see if I could mathematically erase the visible Gemini watermark from AI generated images. To my surprise, it really caught on and reached over 16,500 users. But as I dove deeper into the forensics of AI images, especially testing weird and highly specific prompts like "nano banana ai images", I realized there is a massive difference between the visible sparkles we see on the surface and the invisible markers embedded deep within the file.</p>
 
         <p>Today, I want to break down exactly what the difference is between Google's SynthID and standard visible watermarks, and why removing one absolutely does not mean you have removed the other.</p>
         
         <h2 class="text-slate-900 dark:text-white">The Visible Watermark: The Gemini Sparkle</h2>
         <p>When you generate an image using Google Gemini, it places a small sparkle logo in the bottom corner. This is what we call a visible watermark. From a technical standpoint, this is just a standard alpha blending operation. Gemini takes the original generated image and overlays the logo with a specific transparency or alpha value.</p>
         
-        <p>Because this is a mathematically predictable composite, it is surprisingly easy to reverse. This is exactly what my AI Sparkle Remover handles entirely on the client side using pure Vanilla JavaScript. By using a Reverse Alpha Blending algorithm, we isolate the exact pixels where the watermark was applied. Since we know the pure white color of the logo and its alpha map, we can solve the algebraic equation backwards. The result is a mathematically perfect restoration of the original pixels. There are no blurry patches and no AI guessing games, just pure math restoring the image.</p>
+        <p>Because this is a mathematically predictable composite, it is surprisingly easy to reverse. This is exactly what my Gemini Watermark Remover handles entirely on the client side using pure Vanilla JavaScript. By using a Reverse Alpha Blending algorithm, we isolate the exact pixels where the watermark was applied. Since we know the pure white color of the logo and its alpha map, we can solve the algebraic equation backwards. The result is a mathematically perfect restoration of the original pixels. There are no blurry patches and no AI guessing games, just pure math restoring the image.</p>
         
         <h2 class="text-slate-900 dark:text-white">The Invisible Threat: What is SynthID?</h2>
         <p>Google knows that visible watermarks are easy to crop out or reverse engineer. To combat this, Google DeepMind introduced SynthID. SynthID is an invisible watermarking technology. It does not just overlay a logo on top of the final output; it actually embeds a digital signature directly into the pixels of the image itself.</p>
@@ -175,7 +170,7 @@
         <h2 class="text-slate-900 dark:text-white">The Nano Banana AI Image Test</h2>
         <p>Let us look at a practical example. I was testing out some highly specific, weird prompts to see how watermarks handle extreme compression and distortion. I generated a batch of "nano banana ai images" which were basically microscopic, highly detailed, ridiculous looking bananas.</p>
         
-        <p>First, I ran these banana images through my Sparkle Remover. The visible logo vanished perfectly. To the naked eye, it looked like a clean, standard photo without any AI branding. But when I ran the cleaned image through a SynthID detector, it immediately flagged the image as AI generated.</p>
+        <p>First, I ran these banana images through my Watermark Remover. The visible logo vanished perfectly. To the naked eye, it looked like a clean, standard photo without any AI branding. But when I ran the cleaned image through a SynthID detector, it immediately flagged the image as AI generated.</p>
         
         <p>Why? Because SynthID is designed to be incredibly robust. You can crop the image, apply heavy social media filters, compress it to a low quality JPEG, or even tweak the color balance, and the SynthID pattern still survives. It is not localized to one corner; the cryptographic data is distributed seamlessly across the entire image grid.</p>
         
@@ -239,7 +234,7 @@
       </nav>
       <p class="text-xs text-slate-400 dark:text-slate-600 mt-6">
         Disclaimer: This project is not affiliated with Google Gemini. <br />
-        &copy; 2026 AI Sparkle Remover. All rights reserved.
+        &copy; 2026 Gemini Watermark Remover. All rights reserved.
       </p>
     </div>
   </footer>
