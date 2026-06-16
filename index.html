@@ -197,6 +197,18 @@
             <iconify-icon icon="simple-icons:patreon" width="22"></iconify-icon>
             <span class="hidden sm:inline">Patreon</span>
           </a>
+
+          <!-- Info -->
+          <button
+            type="button"
+            id="infoBtn"
+            class="text-slate-600 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors flex items-center gap-1 font-semibold text-sm md:text-base"
+            aria-label="About this tool"
+            title="About this tool"
+          >
+            <iconify-icon icon="ph:info-fill" width="22"></iconify-icon>
+            <span class="hidden sm:inline">Info</span>
+          </button>
         </nav>
       </div>
     </div>
@@ -290,54 +302,12 @@
         </div>
       </div>
 
-      <!-- Key Info: 2-column -->
-      <div class="max-w-3xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-        <aside class="bg-amber-50/60 dark:bg-amber-900/10 border border-amber-200/60 dark:border-amber-900/30 rounded-2xl p-5">
-          <h3 class="flex items-center gap-2 font-bold text-amber-800 dark:text-amber-300 mb-2 text-sm">
-            <iconify-icon icon="ph:warning-fill" class="text-lg" aria-hidden="true"></iconify-icon> Important Rule
-          </h3>
-          <p class="text-sm text-amber-700/80 dark:text-amber-300/70 font-medium mb-2">Use the <strong>actual downloaded file</strong> from Gemini:</p>
-          <ul class="space-y-1 text-sm text-amber-700/70 dark:text-amber-300/60 font-medium">
-            <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't right-click "Save As"</li>
-            <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't use screenshots</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> Use the <strong>Download</strong> button</li>
-          </ul>
-        </aside>
-        <aside class="bg-blue-50/60 dark:bg-blue-900/10 border border-blue-200/60 dark:border-blue-900/30 rounded-2xl p-5">
-          <h3 class="flex items-center gap-2 font-bold text-blue-800 dark:text-blue-300 mb-2 text-sm">
-            <iconify-icon icon="ph:info-fill" class="text-lg" aria-hidden="true"></iconify-icon> About SynthID
-          </h3>
-          <p class="text-sm text-blue-700/80 dark:text-blue-300/70 font-medium">
-            This tool removes only the <strong>visible sparkle logo</strong> for aesthetic purposes.
-            It does <span class="underline">not</span> remove the invisible SynthID watermark that Google embeds for safety.
-          </p>
-        </aside>
-      </div>
-
-      <!-- Feature Cards: 3-column -->
-      <div class="max-w-3xl mx-auto mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-        <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
-            <iconify-icon icon="ph:sparkle-fill"></iconify-icon>
-          </div>
-          <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">100% Lossless</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Restores original pixels mathematically. No compression or artifacts.</p>
-        </article>
-        <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
-            <iconify-icon icon="ph:lock-key-fill"></iconify-icon>
-          </div>
-          <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Privacy First</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">100% in-browser processing. Your photos never leave your device.</p>
-        </article>
-        <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
-            <iconify-icon icon="ph:code-bold"></iconify-icon>
-          </div>
-          <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Open Source</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Free forever. Inspect the code on <a href="https://github.com/dearabhin/gemini-watermark-remover" class="text-brand-primary hover:underline" rel="noopener noreferrer">GitHub</a>.</p>
-        </article>
-      </div>
+      <p class="mt-6 text-sm text-slate-500 dark:text-slate-400 font-medium">
+        <button type="button" id="infoHeroBtn" class="inline-flex items-center gap-1.5 text-brand-primary hover:underline">
+          <iconify-icon icon="ph:info-fill" width="18" aria-hidden="true"></iconify-icon>
+          Learn more about how it works
+        </button>
+      </p>
 
     </section>
   </main>
@@ -486,6 +456,96 @@
   </div>
 
   <!-- ════════════════════════════════════════════
+       INFO MODAL
+  ════════════════════════════════════════════ -->
+  <div
+    id="infoModal"
+    class="fixed inset-0 z-50 hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="About this tool"
+  >
+    <!-- Backdrop -->
+    <div
+      id="infoModalBackdrop"
+      class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+    ></div>
+
+    <!-- Modal panel -->
+    <div class="relative z-10 flex min-h-full items-center justify-center p-4">
+      <div
+        id="infoModalPanel"
+        class="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-theme-cardDark rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <!-- Header -->
+        <div class="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-theme-cardDark/95 backdrop-blur">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">About this tool</h2>
+          <button
+            type="button"
+            id="closeInfoModal"
+            class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Close information modal"
+          >
+            <iconify-icon icon="ph:x-bold" width="20" aria-hidden="true"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6">
+          <!-- Key Info: 2-column -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <aside class="bg-amber-50/60 dark:bg-amber-900/10 border border-amber-200/60 dark:border-amber-900/30 rounded-2xl p-5">
+              <h3 class="flex items-center gap-2 font-bold text-amber-800 dark:text-amber-300 mb-2 text-sm">
+                <iconify-icon icon="ph:warning-fill" class="text-lg" aria-hidden="true"></iconify-icon> Important Rule
+              </h3>
+              <p class="text-sm text-amber-700/80 dark:text-amber-300/70 font-medium mb-2">Use the <strong>actual downloaded file</strong> from Gemini:</p>
+              <ul class="space-y-1 text-sm text-amber-700/70 dark:text-amber-300/60 font-medium">
+                <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't right-click "Save As"</li>
+                <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't use screenshots</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> Use the <strong>Download</strong> button</li>
+              </ul>
+            </aside>
+            <aside class="bg-blue-50/60 dark:bg-blue-900/10 border border-blue-200/60 dark:border-blue-900/30 rounded-2xl p-5">
+              <h3 class="flex items-center gap-2 font-bold text-blue-800 dark:text-blue-300 mb-2 text-sm">
+                <iconify-icon icon="ph:info-fill" class="text-lg" aria-hidden="true"></iconify-icon> About SynthID
+              </h3>
+              <p class="text-sm text-blue-700/80 dark:text-blue-300/70 font-medium">
+                This tool removes only the <strong>visible sparkle logo</strong> for aesthetic purposes.
+                It does <span class="underline">not</span> remove the invisible SynthID watermark that Google embeds for safety.
+              </p>
+            </aside>
+          </div>
+
+          <!-- Feature Cards: 3-column -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
+                <iconify-icon icon="ph:sparkle-fill"></iconify-icon>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">100% Lossless</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Restores original pixels mathematically. No compression or artifacts.</p>
+            </article>
+            <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
+                <iconify-icon icon="ph:lock-key-fill"></iconify-icon>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Privacy First</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">100% in-browser processing. Your photos never leave your device.</p>
+            </article>
+            <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
+                <iconify-icon icon="ph:code-bold"></iconify-icon>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Open Source</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Free forever. Inspect the code on <a href="https://github.com/dearabhin/gemini-watermark-remover" class="text-brand-primary hover:underline" rel="noopener noreferrer">GitHub</a>.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
        SCRIPTS
   ════════════════════════════════════════════ -->
   <script>
@@ -546,6 +606,47 @@
 
       closeBtn.addEventListener("click",   dismiss);
       dismissBtn.addEventListener("click", dismiss);
+    })();
+
+    // ── Info modal ────────────────────────────────
+    (function () {
+      const modal      = document.getElementById("infoModal");
+      const backdrop   = document.getElementById("infoModalBackdrop");
+      const panel      = document.getElementById("infoModalPanel");
+      const openBtns   = [document.getElementById("infoBtn"), document.getElementById("infoHeroBtn")];
+      const closeBtn   = document.getElementById("closeInfoModal");
+
+      if (!modal || !panel) return;
+
+      function openModal() {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        requestAnimationFrame(() => {
+          backdrop.classList.remove("opacity-0");
+          panel.classList.remove("scale-95", "opacity-0");
+          panel.classList.add("scale-100", "opacity-100");
+        });
+      }
+
+      function closeModal() {
+        backdrop.classList.add("opacity-0");
+        panel.classList.remove("scale-100", "opacity-100");
+        panel.classList.add("scale-95", "opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      openBtns.forEach(btn => btn && btn.addEventListener("click", openModal));
+      closeBtn && closeBtn.addEventListener("click", closeModal);
+      backdrop && backdrop.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
     })();
   </script>
 
