@@ -281,6 +281,15 @@
             <div class="w-full lg:w-64 flex-shrink-0">
               <div class="bg-white dark:bg-theme-cardDark rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-5 sticky top-24">
                 <h2 class="font-bold text-slate-900 dark:text-white mb-4 text-base">Actions</h2>
+
+                <div class="mb-4">
+                  <label for="formatSelect" class="block text-xs font-bold text-slate-600 dark:text-slate-400 mb-1.5">Download format</label>
+                  <select id="formatSelect" class="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-slate-900 dark:text-white rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all cursor-pointer">
+                    <option value="png">PNG — lossless</option>
+                    <option value="webp">WebP — lossy, smaller</option>
+                  </select>
+                </div>
+
                 <button id="downloadBtn" class="hidden group w-full py-3.5 relative overflow-hidden rounded-xl font-bold mb-3 text-white shadow-lg shadow-brand-primary/30 transition-all duration-300" aria-label="Download processed image">
                   <div class="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent opacity-100 group-hover:scale-110 transition-transform duration-500"></div>
                   <div class="relative flex items-center justify-center gap-2">
