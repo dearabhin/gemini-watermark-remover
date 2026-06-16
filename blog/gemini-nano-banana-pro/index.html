@@ -8,7 +8,7 @@
   <meta name="description" content="A complete guide to unlocking Gemini's Nano Banana Pro image model and the perfect prompt for testing textures." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://removewatermark.dev/blog/gemini-nano-banana-pro/" />
-  <meta name="theme-color" content="#6366f1" />
+  <meta name="theme-color" content="#0f6cbd" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
@@ -67,7 +67,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- Self-hosted Fonts -->
-  <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Built Tailwind CSS (purged, minified) -->
   <link rel="stylesheet" href="/css/output.css" />
@@ -92,31 +91,27 @@
     gtag('config', 'G-211ECNBEDH');
   </script>
   <!-- Styles in css/output.css -->
+  <script src="/js/theme.js"></script>
 </head>
 
 <body class="bg-theme-light dark:bg-theme-dark text-slate-800 dark:text-slate-200 antialiased flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-white/80 dark:bg-theme-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-theme-dark-translucent backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
     <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2 overflow-hidden hover:opacity-80 transition-opacity">
         <span class="text-3xl select-none" aria-hidden="true">✨</span>
         <a href="/" class="text-lg md:text-xl font-bold text-slate-900 dark:text-white whitespace-nowrap tracking-tight m-0">
-          AI Sparkle <span class="text-brand-primary">Remover</span>
+          Gemini Watermark <span class="text-brand-primary">Remover</span>
         </a>
       </div>
 
       <div class="flex items-center gap-4">
         <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary/50" aria-label="Toggle Dark Mode">
-          <iconify-icon id="sunIcon" icon="ph:sun-bold" width="22" class="hidden dark:block"></iconify-icon>
-          <iconify-icon id="moonIcon" icon="ph:moon-bold" width="22" class="block dark:hidden"></iconify-icon>
+          <iconify-icon id="sunIcon" icon="fluent:weather-sunny-24-filled" width="22" class="hidden dark:block"></iconify-icon>
+          <iconify-icon id="moonIcon" icon="fluent:weather-moon-24-filled" width="22" class="block dark:hidden"></iconify-icon>
         </button>
-        <nav aria-label="Site navigation" class="flex-shrink-0 border-l border-gray-200 dark:border-gray-700 pl-4 flex items-center gap-3">
-          <a href="https://github.com/dearabhin/gemini-watermark-remover" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors flex items-center gap-1 font-semibold text-sm md:text-base">
-            <iconify-icon icon="mdi:github" width="24"></iconify-icon>
-            <span class="hidden sm:inline">GitHub</span>
-          </a>
-        </nav>
+        
       </div>
     </div>
   </header>
@@ -158,7 +153,7 @@
       </div>
 
       <article class="text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-        <p>Hey everyone. If you have been following my deep dives into the forensics of AI images and building the AI Sparkle Remover, you know I generate a lot of test images. Recently, I have been pushing the boundaries of Google Gemini's native image generation capabilities, specifically exploring their latest image model architecture.</p>
+        <p>Hey everyone. If you have been following my deep dives into the forensics of AI images and building the Gemini Watermark Remover, you know I generate a lot of test images. Recently, I have been pushing the boundaries of Google Gemini's native image generation capabilities, specifically exploring their latest image model architecture.</p>
 
         <p>Today, I want to walk you through exactly how to access the absolute highest quality image generation inside Gemini using the Nano Banana Pro workflow, and share a specific prompt I use to stress test texture generation.</p>
 
@@ -206,7 +201,7 @@
 
         <p>Of course, as soon as you generate this beautiful image, you will notice that familiar little visible sparkle logo sitting right there in the bottom right corner. And as we all know by now, that visible layer is just an alpha compositing equation waiting to be reversed.</p>
         
-        <p>Feel free to take your newly generated Nano Banana Pro image and run it straight through our AI Sparkle Remover tool. It handles the high resolution output flawlessly. Just remember, while the visible watermark mathematically vanishes, the invisible SynthID fingerprint is still woven deep into those beautiful glitter pixels!</p>
+        <p>Feel free to take your newly generated Nano Banana Pro image and run it straight through our Gemini Watermark Remover tool. It handles the high resolution output flawlessly. Just remember, while the visible watermark mathematically vanishes, the invisible SynthID fingerprint is still woven deep into those beautiful glitter pixels!</p>
 
       </article>
 
@@ -250,50 +245,10 @@
       </nav>
       <p class="text-xs text-slate-400 dark:text-slate-600 mt-6">
         Disclaimer: This project is not affiliated with Google Gemini. <br />
-        &copy; 2026 AI Sparkle Remover. All rights reserved.
+        &copy; 2026 Gemini Watermark Remover. All rights reserved.
       </p>
     </div>
   </footer>
 
-  <script>
-    const themeToggleBtn = document.getElementById("themeToggle");
-    const htmlElement    = document.documentElement;
-    if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
-    themeToggleBtn.addEventListener("click", () => {
-      if (htmlElement.classList.contains("dark")) {
-        htmlElement.classList.remove("dark"); localStorage.theme = "light";
-      } else {
-        htmlElement.classList.add("dark"); localStorage.theme = "dark";
-      }
-    });
-
-    // Copy prompt to clipboard functionality
-    const copyBtn = document.getElementById('copyPromptBtn');
-    const copyIcon = document.getElementById('copyIcon');
-    const promptText = document.getElementById('promptText');
-
-    if (copyBtn && promptText) {
-      copyBtn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(promptText.textContent.trim());
-          
-          // Show success state
-          copyIcon.setAttribute('icon', 'mdi:check');
-          copyBtn.classList.add('text-emerald-500', 'border-emerald-500/50');
-          
-          setTimeout(() => {
-            copyIcon.setAttribute('icon', 'mdi:content-copy');
-            copyBtn.classList.remove('text-emerald-500', 'border-emerald-500/50');
-          }, 2000);
-        } catch (err) {
-          console.error('Failed to copy text: ', err);
-        }
-      });
-    }
-  </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- ── SEO ── -->
-<title>Remove AI Watermark Free Online – Gemini Sparkle Remover | RemoveWatermark.dev</title>
+<title>Remove AI Watermark Free Online – Gemini Watermark Remover | RemoveWatermark.dev</title>
 <meta name="description" content="Free online tool to remove the visible ✨ sparkle watermark from Google Gemini AI images. 100% client-side, private, lossless. No upload to server. Works instantly in your browser." />
 <meta name="keywords" content="remove ai watermark, gemini watermark remover, remove sparkle watermark, gemini ai image watermark remover, google gemini sparkle remove, free watermark remover online, client side watermark remover, lossless watermark removal" />
 <meta name="author" content="Abhin Krishna" />
@@ -14,12 +14,12 @@
 <link rel="llms" type="text/plain" href="/llms.txt" />
 
 <!-- ── Theme color for mobile browsers ── -->
-<meta name="theme-color" content="#6366f1" />
+<meta name="theme-color" content="#0f6cbd" />
 
 <!-- ── Open Graph ── -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://removewatermark.dev/" />
-<meta property="og:title" content="Remove AI Watermark Free – Gemini Sparkle Remover | RemoveWatermark.dev" />
+<meta property="og:title" content="Remove AI Watermark Free – Gemini Watermark Remover | RemoveWatermark.dev" />
 <meta property="og:description" content="Remove the visible ✨ sparkle watermark from Google Gemini AI images instantly. Free, private, lossless — processed entirely in your browser." />
 <meta property="og:image" content="https://removewatermark.dev/assets/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -30,7 +30,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@dearabhin" />
 <meta name="twitter:creator" content="@dearabhin" />
-<meta name="twitter:title" content="Remove AI Watermark Free – Gemini Sparkle Remover" />
+<meta name="twitter:title" content="Remove AI Watermark Free – Gemini Watermark Remover" />
 <meta name="twitter:description" content="Remove the visible ✨ sparkle watermark from Google Gemini AI images. 100% free, private, in-browser." />
 <meta name="twitter:image" content="https://removewatermark.dev/assets/og-image.jpg" />
 
@@ -39,7 +39,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "RemoveWatermark.dev – AI Gemini Sparkle Remover",
+  "name": "RemoveWatermark.dev – Gemini Watermark Remover",
   "url": "https://removewatermark.dev/",
   "description": "Free browser-based tool to remove the AI sparkle watermark from Google Gemini generated images using Reverse Alpha Blending. 100% client-side, lossless, private.",
   "applicationCategory": "UtilitiesApplication",
@@ -106,7 +106,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 <!-- ── Self-hosted Fonts ── -->
-<link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- ── Built Tailwind CSS (purged, minified) ── -->
 <link rel="stylesheet" href="/css/output.css" />
@@ -132,6 +131,7 @@
   </script>
 
 <!-- All custom styles are now in css/input.css → css/output.css -->
+  <script src="/js/theme.js"></script>
 </head>
 
 <body
@@ -143,7 +143,7 @@
        HEADER
   ════════════════════════════════════════════ -->
   <header
-    class="sticky top-0 z-50 bg-white/80 dark:bg-theme-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
+    class="sticky top-0 z-50 bg-white/80 dark:bg-theme-dark-translucent backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
   >
     <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
@@ -153,7 +153,7 @@
         <p
           class="text-lg md:text-xl font-bold text-slate-900 dark:text-white whitespace-nowrap tracking-tight m-0"
         >
-          AI Sparkle <span class="text-brand-primary">Remover</span>
+          Gemini Watermark <span class="text-brand-primary">Remover</span>
         </p>
       </div>
 
@@ -164,8 +164,8 @@
           class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-slate-600 dark:text-slate-400 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
           aria-label="Toggle Dark Mode"
         >
-          <iconify-icon id="sunIcon"  icon="ph:sun-bold"  width="22" class="hidden dark:block"></iconify-icon>
-          <iconify-icon id="moonIcon" icon="ph:moon-bold" width="22" class="block dark:hidden"></iconify-icon>
+          <iconify-icon id="sunIcon"  icon="fluent:weather-sunny-24-filled"  width="22" class="hidden dark:block"></iconify-icon>
+          <iconify-icon id="moonIcon" icon="fluent:weather-moon-24-filled" width="22" class="block dark:hidden"></iconify-icon>
         </button>
 
         <!-- Nav links -->
@@ -174,29 +174,20 @@
           class="flex-shrink-0 border-l border-gray-200 dark:border-gray-700 pl-4 flex items-center gap-3"
         >
           <!-- GitHub -->
-          <a
-            href="https://github.com/dearabhin/gemini-watermark-remover"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-slate-600 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors flex items-center gap-1 font-semibold text-sm md:text-base"
-            aria-label="View source on GitHub"
-          >
-            <iconify-icon icon="mdi:github" width="24"></iconify-icon>
-            <span class="hidden sm:inline">GitHub</span>
-          </a>
+          
 
           <!-- Patreon -->
-          <a
-            href="https://www.patreon.com/cw/AbhinKrishna/membership"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-slate-600 dark:text-slate-400 hover-patreon transition-colors flex items-center gap-1 font-semibold text-sm md:text-base"
-            aria-label="Support on Patreon"
-            title="Support on Patreon"
+          
+
+          <!-- Info -->
+          <button
+            type="button"
+            id="infoBtn"
+            class="text-slate-600 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors flex items-center justify-center font-semibold text-sm md:text-base"
+            aria-label="About this tool"
+            title="About this tool"
           >
-            <iconify-icon icon="simple-icons:patreon" width="22"></iconify-icon>
-            <span class="hidden sm:inline">Patreon</span>
-          </a>
+            <iconify-icon icon="ph:info-fill" width="22"></iconify-icon></button>
         </nav>
       </div>
     </div>
@@ -223,7 +214,7 @@
 
       <!-- Hero -->
       <h1 id="hero-heading" class="text-3xl md:text-5xl font-extrabold mb-3 text-slate-900 dark:text-white tracking-tight">
-        Remove <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent">AI Sparkle Watermark</span>
+        Gemini <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent">Watermark Remover</span>
       </h1>
       <p class="text-slate-500 dark:text-slate-400 max-w-lg mx-auto font-medium text-base md:text-lg mb-4">
         Remove the visible ✨ sparkle watermark from Gemini AI images.
@@ -231,18 +222,6 @@
       </p>
 
       <!-- Trust badges -->
-      <div class="flex flex-wrap items-center justify-center gap-3 mb-8 text-xs font-bold text-slate-500 dark:text-slate-400">
-        <span class="inline-flex items-center gap-1.5 bg-white dark:bg-theme-cardDark border border-gray-200 dark:border-gray-700 px-3 py-1.5 rounded-full">
-          <iconify-icon icon="ph:lock-key-fill" width="14" class="text-blue-500" aria-hidden="true"></iconify-icon> 100% Client-Side
-        </span>
-        <span class="inline-flex items-center gap-1.5 bg-white dark:bg-theme-cardDark border border-gray-200 dark:border-gray-700 px-3 py-1.5 rounded-full">
-          <iconify-icon icon="ph:images-bold" width="14" class="text-brand-primary" aria-hidden="true"></iconify-icon> Bulk Upload
-        </span>
-        <span class="inline-flex items-center gap-1.5 bg-white dark:bg-theme-cardDark border border-gray-200 dark:border-gray-700 px-3 py-1.5 rounded-full">
-          <iconify-icon icon="ph:sparkle-fill" width="14" class="text-purple-500" aria-hidden="true"></iconify-icon> Lossless Quality
-        </span>
-      </div>
-
       <!-- Upload Card -->
       <div class="max-w-5xl mx-auto bg-white dark:bg-theme-cardDark rounded-3xl shadow-xl dark:shadow-none p-4 border border-gray-100 dark:border-gray-800 relative z-10 transition-colors">
         <div
@@ -269,6 +248,24 @@
             <div class="w-full lg:w-64 flex-shrink-0">
               <div class="bg-white dark:bg-theme-cardDark rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 p-5 sticky top-24">
                 <h2 class="font-bold text-slate-900 dark:text-white mb-4 text-base">Actions</h2>
+
+                <div class="mb-4">
+                  <label for="formatSelect" class="block text-xs font-bold text-slate-600 dark:text-slate-400 mb-1.5">Download format</label>
+                  <select id="formatSelect" class="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-slate-900 dark:text-white rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all cursor-pointer">
+                    <option value="png">PNG — lossless</option>
+                    <option value="webp">WebP — lossy, smaller</option>
+                  </select>
+                </div>
+
+                <div id="qualityControl" class="mb-4 hidden">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <label for="qualitySlider" class="block text-xs font-bold text-slate-600 dark:text-slate-400">WebP quality</label>
+                    <span id="qualityValue" class="text-xs font-mono font-bold text-brand-primary">90%</span>
+                  </div>
+                  <input id="qualitySlider" type="range" min="1" max="100" value="90" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-brand-primary" aria-label="WebP quality" />
+                  <p class="mt-1 text-[10px] text-slate-400 dark:text-slate-500 font-medium">Lower = smaller file. Start from 90% and lower if still too big.</p>
+                </div>
+
                 <button id="downloadBtn" class="hidden group w-full py-3.5 relative overflow-hidden rounded-xl font-bold mb-3 text-white shadow-lg shadow-brand-primary/30 transition-all duration-300" aria-label="Download processed image">
                   <div class="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent opacity-100 group-hover:scale-110 transition-transform duration-500"></div>
                   <div class="relative flex items-center justify-center gap-2">
@@ -290,134 +287,22 @@
         </div>
       </div>
 
-      <!-- Key Info: 2-column -->
-      <div class="max-w-3xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-        <aside class="bg-amber-50/60 dark:bg-amber-900/10 border border-amber-200/60 dark:border-amber-900/30 rounded-2xl p-5">
-          <h3 class="flex items-center gap-2 font-bold text-amber-800 dark:text-amber-300 mb-2 text-sm">
-            <iconify-icon icon="ph:warning-fill" class="text-lg" aria-hidden="true"></iconify-icon> Important Rule
-          </h3>
-          <p class="text-sm text-amber-700/80 dark:text-amber-300/70 font-medium mb-2">Use the <strong>actual downloaded file</strong> from Gemini:</p>
-          <ul class="space-y-1 text-sm text-amber-700/70 dark:text-amber-300/60 font-medium">
-            <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't right-click "Save As"</li>
-            <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't use screenshots</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> Use the <strong>Download</strong> button</li>
-          </ul>
-        </aside>
-        <aside class="bg-blue-50/60 dark:bg-blue-900/10 border border-blue-200/60 dark:border-blue-900/30 rounded-2xl p-5">
-          <h3 class="flex items-center gap-2 font-bold text-blue-800 dark:text-blue-300 mb-2 text-sm">
-            <iconify-icon icon="ph:info-fill" class="text-lg" aria-hidden="true"></iconify-icon> About SynthID
-          </h3>
-          <p class="text-sm text-blue-700/80 dark:text-blue-300/70 font-medium">
-            This tool removes only the <strong>visible sparkle logo</strong> for aesthetic purposes.
-            It does <span class="underline">not</span> remove the invisible SynthID watermark that Google embeds for safety.
-          </p>
-        </aside>
-      </div>
-
-      <!-- Feature Cards: 3-column -->
-      <div class="max-w-3xl mx-auto mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-        <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
-            <iconify-icon icon="ph:sparkle-fill"></iconify-icon>
-          </div>
-          <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">100% Lossless</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Restores original pixels mathematically. No compression or artifacts.</p>
-        </article>
-        <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
-            <iconify-icon icon="ph:lock-key-fill"></iconify-icon>
-          </div>
-          <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Privacy First</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">100% in-browser processing. Your photos never leave your device.</p>
-        </article>
-        <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
-          <div class="w-10 h-10 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
-            <iconify-icon icon="ph:code-bold"></iconify-icon>
-          </div>
-          <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Open Source</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Free forever. Inspect the code on <a href="https://github.com/dearabhin/gemini-watermark-remover" class="text-brand-primary hover:underline" rel="noopener noreferrer">GitHub</a>.</p>
-        </article>
-      </div>
+      <p class="mt-6 text-sm text-slate-500 dark:text-slate-400 font-medium">
+        <button type="button" id="infoHeroBtn" class="inline-flex items-center gap-1.5 text-brand-primary hover:underline">
+          <iconify-icon icon="ph:info-fill" width="18" aria-hidden="true"></iconify-icon>
+          Learn more about how it works
+        </button>
+      </p>
 
     </section>
   </main>
-
-  <!-- ════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════ -->
-  <footer
-    class="bg-white dark:bg-theme-cardDark border-t border-gray-100 dark:border-gray-800 mt-auto"
-  >
-    <div class="max-w-7xl mx-auto px-4 py-8 text-center">
-      <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">
-        Developed by
-        <span class="font-bold text-slate-900 dark:text-white">Abhin Krishna</span>
-      </p>
-      <nav aria-label="Social media links" class="flex justify-center gap-6 mt-4 text-slate-400 dark:text-slate-500">
-
-        <a
-          href="https://twitter.com/dearabhin"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"
-          aria-label="Follow on Twitter / X"
-        ><iconify-icon icon="line-md:twitter-x" width="24"></iconify-icon></a>
-
-        <a
-          href="https://instagram.com/dearabhin"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover-instagram hover:scale-110 transition-transform"
-          aria-label="Follow on Instagram"
-        ><iconify-icon icon="mdi:instagram" width="24"></iconify-icon></a>
-
-        <a
-          href="https://github.com/dearabhin"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"
-          aria-label="View GitHub profile"
-        ><iconify-icon icon="mdi:github" width="24"></iconify-icon></a>
-
-        <a
-          href="https://linkedin.com/in/abhin-krishna"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-[#0077b5] hover:scale-110 transition-transform"
-          aria-label="Connect on LinkedIn"
-        ><iconify-icon icon="mdi:linkedin" width="24"></iconify-icon></a>
-
-        <a
-          href="https://www.patreon.com/cw/AbhinKrishna/membership"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover-patreon hover:scale-110 transition-transform"
-          aria-label="Support on Patreon"
-        ><iconify-icon icon="simple-icons:patreon" width="24"></iconify-icon></a>
-
-      </nav>
-      
-      <nav aria-label="Footer links" class="flex justify-center gap-4 mt-6 text-sm text-slate-500 dark:text-slate-400 font-medium flex-wrap">
-        <a href="/privacy-policy.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">Privacy Policy</a>
-        <a href="/terms.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">Terms of Service</a>
-        <a href="/about.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">About</a>
-        <a href="/contact.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">Contact</a>
-        <a href="/blog/" class="hover:text-brand-primary dark:hover:text-white transition-colors">Blog</a>
-      </nav>
-
-      <p class="text-xs text-slate-400 dark:text-slate-600 mt-6">
-        Disclaimer: This project is not affiliated with Google Gemini. <br />
-        &copy; 2026 AI Sparkle Remover. All rights reserved.
-      </p>
-    </div>
-  </footer>
 
   <!-- ════════════════════════════════════════════
        LOADING OVERLAY
   ════════════════════════════════════════════ -->
   <div
     id="loadingOverlay"
-    class="fixed inset-0 bg-white/90 dark:bg-theme-dark/90 backdrop-blur-sm z-50 hidden items-center justify-center"
+    class="fixed inset-0 bg-white/90 dark:bg-theme-dark-translucent backdrop-blur-sm z-50 hidden items-center justify-center"
     role="status"
     aria-live="polite"
     aria-label="Processing your image"
@@ -486,32 +371,160 @@
   </div>
 
   <!-- ════════════════════════════════════════════
+       INFO MODAL
+  ════════════════════════════════════════════ -->
+  <div
+    id="infoModal"
+    class="fixed inset-0 z-50 hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="About this tool"
+  >
+    <!-- Backdrop -->
+    <div
+      id="infoModalBackdrop"
+      class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+    ></div>
+
+    <!-- Modal panel -->
+    <div class="relative z-10 flex min-h-full items-center justify-center p-4">
+      <div
+        id="infoModalPanel"
+        class="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-theme-cardDark rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <!-- Header -->
+        <div class="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-theme-card-dark-translucent backdrop-blur">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">About this tool</h2>
+          <button
+            type="button"
+            id="closeInfoModal"
+            class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Close information modal"
+          >
+            <iconify-icon icon="ph:x-bold" width="20" aria-hidden="true"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6">
+          <!-- Key Info: 2-column -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <aside class="bg-amber-50/60 dark:bg-amber-900/10 border border-amber-200/60 dark:border-amber-900/30 rounded-2xl p-5">
+              <h3 class="flex items-center gap-2 font-bold text-amber-800 dark:text-amber-300 mb-2 text-sm">
+                <iconify-icon icon="ph:warning-fill" class="text-lg" aria-hidden="true"></iconify-icon> Important Rule
+              </h3>
+              <p class="text-sm text-amber-700/80 dark:text-amber-300/70 font-medium mb-2">Use the <strong>actual downloaded file</strong> from Gemini:</p>
+              <ul class="space-y-1 text-sm text-amber-700/70 dark:text-amber-300/60 font-medium">
+                <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't right-click "Save As"</li>
+                <li class="flex items-center gap-2"><span class="text-red-500">×</span> Don't use screenshots</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> Use the <strong>Download</strong> button</li>
+              </ul>
+            </aside>
+            <aside class="bg-blue-50/60 dark:bg-blue-900/10 border border-blue-200/60 dark:border-blue-900/30 rounded-2xl p-5">
+              <h3 class="flex items-center gap-2 font-bold text-blue-800 dark:text-blue-300 mb-2 text-sm">
+                <iconify-icon icon="ph:info-fill" class="text-lg" aria-hidden="true"></iconify-icon> About SynthID
+              </h3>
+              <p class="text-sm text-blue-700/80 dark:text-blue-300/70 font-medium">
+                This tool removes only the <strong>visible sparkle logo</strong> for aesthetic purposes.
+                It does <span class="underline">not</span> remove the invisible SynthID watermark that Google embeds for safety.
+              </p>
+            </aside>
+          </div>
+
+          <!-- Feature Cards: 3-column -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
+                <iconify-icon icon="ph:sparkle-fill"></iconify-icon>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">100% Lossless</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Restores original pixels mathematically. No compression or artifacts.</p>
+            </article>
+            <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
+                <iconify-icon icon="ph:lock-key-fill"></iconify-icon>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Privacy First</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">100% in-browser processing. Your photos never leave your device.</p>
+            </article>
+            <article class="bg-white dark:bg-theme-cardDark p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-xl flex items-center justify-center mb-3 text-xl" aria-hidden="true">
+                <iconify-icon icon="ph:code-bold"></iconify-icon>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1 text-sm">Open Source</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Free forever. Inspect the code on <a href="https://github.com/dearabhin/gemini-watermark-remover" class="text-brand-primary hover:underline" rel="noopener noreferrer">GitHub</a>.</p>
+            </article>
+          </div>
+
+          <!-- Footer info -->
+          <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 text-center">
+            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mb-3">
+              Developed by
+              <span class="font-bold text-slate-900 dark:text-white">Abhin Krishna</span>
+            </p>
+            <nav aria-label="Modal footer links" class="flex justify-center gap-4 text-sm text-slate-500 dark:text-slate-400 font-medium flex-wrap mb-3">
+              <a href="/privacy-policy.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">Privacy Policy</a>
+              <a href="/terms.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">Terms of Service</a>
+              <a href="/about.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">About</a>
+              <a href="/contact.html" class="hover:text-brand-primary dark:hover:text-white transition-colors">Contact</a>
+              <a href="/blog/" class="hover:text-brand-primary dark:hover:text-white transition-colors">Blog</a>
+            </nav>
+            <p class="text-xs text-slate-400 dark:text-slate-600">
+              Disclaimer: This project is not affiliated with Google Gemini.<br />
+              &copy; 2026 Gemini Watermark Remover. All rights reserved.
+            </p>
+
+            <nav aria-label="Social media links" class="flex justify-center gap-6 mt-4 text-slate-400 dark:text-slate-500">
+              <a
+                href="https://twitter.com/dearabhin"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"
+                aria-label="Follow on Twitter / X"
+              ><iconify-icon icon="line-md:twitter-x" width="24"></iconify-icon></a>
+
+              <a
+                href="https://instagram.com/dearabhin"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover-instagram hover:scale-110 transition-transform"
+                aria-label="Follow on Instagram"
+              ><iconify-icon icon="mdi:instagram" width="24"></iconify-icon></a>
+
+              <a
+                href="https://github.com/dearabhin"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-black dark:hover:text-white hover:scale-110 transition-transform"
+                aria-label="View GitHub profile"
+              ><iconify-icon icon="mdi:github" width="24"></iconify-icon></a>
+
+              <a
+                href="https://linkedin.com/in/abhin-krishna"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-[#0077b5] hover:scale-110 transition-transform"
+                aria-label="Connect on LinkedIn"
+              ><iconify-icon icon="mdi:linkedin" width="24"></iconify-icon></a>
+
+              <a
+                href="https://www.patreon.com/cw/AbhinKrishna/membership"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover-patreon hover:scale-110 transition-transform"
+                aria-label="Support on Patreon"
+              ><iconify-icon icon="simple-icons:patreon" width="24"></iconify-icon></a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
        SCRIPTS
   ════════════════════════════════════════════ -->
   <script>
-    // ── Theme toggle ──────────────────────────────
-    const themeToggleBtn = document.getElementById("themeToggle");
-    const htmlElement    = document.documentElement;
-
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
-
-    themeToggleBtn.addEventListener("click", () => {
-      if (htmlElement.classList.contains("dark")) {
-        htmlElement.classList.remove("dark");
-        localStorage.theme = "light";
-      } else {
-        htmlElement.classList.add("dark");
-        localStorage.theme = "dark";
-      }
-    });
-
     // ── Floating support popup ────────────────────
     (function () {
       const popup      = document.getElementById("supportPopup");
@@ -546,6 +559,47 @@
 
       closeBtn.addEventListener("click",   dismiss);
       dismissBtn.addEventListener("click", dismiss);
+    })();
+
+    // ── Info modal ────────────────────────────────
+    (function () {
+      const modal      = document.getElementById("infoModal");
+      const backdrop   = document.getElementById("infoModalBackdrop");
+      const panel      = document.getElementById("infoModalPanel");
+      const openBtns   = [document.getElementById("infoBtn"), document.getElementById("infoHeroBtn")];
+      const closeBtn   = document.getElementById("closeInfoModal");
+
+      if (!modal || !panel) return;
+
+      function openModal() {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        requestAnimationFrame(() => {
+          backdrop.classList.remove("opacity-0");
+          panel.classList.remove("scale-95", "opacity-0");
+          panel.classList.add("scale-100", "opacity-100");
+        });
+      }
+
+      function closeModal() {
+        backdrop.classList.add("opacity-0");
+        panel.classList.remove("scale-100", "opacity-100");
+        panel.classList.add("scale-95", "opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      openBtns.forEach(btn => btn && btn.addEventListener("click", openModal));
+      closeBtn && closeBtn.addEventListener("click", closeModal);
+      backdrop && backdrop.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
     })();
   </script>
 

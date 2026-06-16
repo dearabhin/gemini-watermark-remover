@@ -21,8 +21,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('downloadBtn');
     const downloadAllBtn = document.getElementById('downloadAllBtn');
     const resetBtn = document.getElementById('resetBtn');
+    const formatSelect = document.getElementById('formatSelect');
+    const qualityControl = document.getElementById('qualityControl');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityValue = document.getElementById('qualityValue');
 
-    let allProcessedFiles = []; 
+    let allProcessedFiles = [];
+    const DEFAULT_QUALITY = 90;
+
+    function updateQualityVisibility() {
+        if (formatSelect.value === 'webp') {
+            qualityControl.classList.remove('hidden');
+        } else {
+            qualityControl.classList.add('hidden');
+        }
+    }
+
+    function getQuality() {
+        return (qualitySlider ? parseInt(qualitySlider.value, 10) : DEFAULT_QUALITY) / 100;
+    }
+
+    if (qualitySlider && qualityValue) {
+        qualitySlider.addEventListener('input', () => {
+            qualityValue.textContent = qualitySlider.value + '%';
+        });
+    }
+
+    formatSelect.addEventListener('change', updateQualityVisibility);
+    updateQualityVisibility();
+
+    // Convert a PNG blob to the requested download format.
+    // Returns { blob, ext }. PNG is returned as-is; WebP is encoded lossy via canvas.
+    async function convertToFormat(blob, format, quality = 0.92) {
+        if (format !== 'webp') return { blob, ext: 'png' };
+
+        const bitmap = await createImageBitmap(blob);
+        const canvas = document.createElement('canvas');
+        canvas.width = bitmap.width;
+        canvas.height = bitmap.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(bitmap, 0, 0);
+        bitmap.close();
+
+        return new Promise((resolve, reject) => {
+            canvas.toBlob((webpBlob) => {
+                // Some browsers (e.g. Safari) silently fall back to PNG when WebP encoding is unsupported.
+                if (webpBlob && webpBlob.type === 'image/webp') {
+                    resolve({ blob: webpBlob, ext: 'webp' });
+                } else {
+                    reject(new Error('Browser does not support WebP encoding.'));
+                }
+            }, 'image/webp', quality);
+        });
+    } 
 
     uploadArea.addEventListener('click', () => fileInput.click());
 
@@ -56,13 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
         allProcessedFiles = [];
     });
 
-    downloadBtn.addEventListener('click', () => {
+    downloadBtn.addEventListener('click', async () => {
         if (allProcessedFiles.length === 1) {
             const item = allProcessedFiles[0];
-            const a = document.createElement('a');
-            a.href = item.url;
-            a.download = item.name;
-            a.click();
+            try {
+                const { blob, ext } = await convertToFormat(item.blob, formatSelect.value, getQuality());
+                const name = item.name.replace(/\.[^/.]+$/, '') + '.' + ext;
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = name;
+                a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            } catch (err) {
+                console.error(err);
+                alert('Could not convert to the selected format. Falling back to PNG.');
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.download = item.name;
+                a.click();
+            }
         }
     });
 
@@ -71,7 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (allProcessedFiles.length === 0) return;
         const { default: JSZip } = await import('https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm');
         const zip = new JSZip();
-        allProcessedFiles.forEach(item => zip.file(item.name, item.blob));
+        const format = formatSelect.value;
+        await Promise.all(allProcessedFiles.map(async (item) => {
+            try {
+                const { blob, ext } = await convertToFormat(item.blob, format, getQuality());
+                const name = item.name.replace(/\.[^/.]+$/, '') + '.' + ext;
+                zip.file(name, blob);
+            } catch (err) {
+                console.error(err);
+                zip.file(item.name, item.blob);
+            }
+        }));
         const zipBlob = await zip.generateAsync({ type: 'blob' });
         const url = URL.createObjectURL(zipBlob);
         const a = document.createElement('a');
@@ -129,8 +203,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>`;
 
-        card.querySelector('button[data-index]').addEventListener('click', () => {
-            const a = document.createElement('a'); a.href = fileData.url; a.download = fileName; a.click();
+        card.querySelector('button[data-index]').addEventListener('click', async () => {
+            try {
+                const { blob, ext } = await convertToFormat(fileData.blob, formatSelect.value, getQuality());
+                const name = fileName.replace(/\.[^/.]+$/, '') + '.' + ext;
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = name;
+                a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            } catch (err) {
+                console.error(err);
+                const a = document.createElement('a');
+                a.href = fileData.url;
+                a.download = fileName;
+                a.click();
+            }
         });
     }
 
@@ -159,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const result = await engine.process(file);
-                const fileName = `clean_${file.name.replace(/\.[^/.]+$/, "")}.png`;
+                const fileName = `${file.name.replace(/\.[^/.]+$/, "")}-clean.png`;
                 const fileData = {
                     name: fileName,
                     blob: result.blob,
