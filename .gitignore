@@ -10,3 +10,6 @@ public/css/output.css
 # Logs / misc
 *.log
 .DS_Store
+
+# Local scripts
+launch.sh
